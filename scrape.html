@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
+    </head>
+    <body>
+        <script>
+            setInterval(function(){
+                $.getJSON('http://localhost:8080/thingspeak.com/channels/1704118/feed.json?results=1',function(data){
+                    let ulkola = data.feeds[0].field1;
+                    let ulkoko = data.feeds[0].field2;
+                    let sisala = data.feeds[0].field3;
+                    let sisako = data.feeds[0].field4;
+                    let sisapa = data.feeds[0].field5;
+                    let sisahi = data.feeds[0].field6;
+                    let sisaco = data.feeds[0].field7;
+                    document.getElementById("ulkol").innerHTML=Math.round(ulkola);
+                    document.getElementById("ulkok").innerHTML=Math.round(ulkoko);
+                    document.getElementById("sisal").innerHTML=Math.round(sisala);
+                    document.getElementById("sisak").innerHTML=Math.round(sisako);
+                    document.getElementById("sisap").innerHTML=Math.round(sisapa);
+                    document.getElementById("sisaco").innerHTML=Math.round(sisaco);
+                    document.getElementById("sisah").innerHTML=Math.round(sisahi);
+                });
+            },60000);
+        </script>
+        <div class="container">
+            <fieldset id="ruoka">
+                <legend><b>RUOKALISTA</b></legend>
+                <ul>
+                    <li id="maanantai">Maanantai 28.11 <br/>Spaghettia, Jauhelihakastiketta</li>
+                    <li id="tiistai">Tiistai 29.11 <br/>Kana-pekonivuokaa</li>
+                    <li id="keskiviikko">Keskiviikko 30.11<br/>Jauhelihapihvejä, Perunoita ja Pippurikastiketta</li>
+                    <li id="torstai">Torstai 1.12<br/>Kirjolohikiusausta</li>
+                    <li id="perjantai">Perjantai 2.12<br/>TBD</li>
+                </ul>
+            </fieldset>
+            <fieldset id="arvot">
+                <legend><b>LÄMPÖTILAT</b></legend>
+                <div class="arvoulko"><p>Ulkolämpötila<br/><b><span id="ulkol"></span> <sup>o</sup>C</b></p></div>
+                <div class="arvoulko"><p>Sisälämpötila<br/><b><span id="sisal"></span> <sup>o</sup>C</b></p></div>
+               
+            </fieldset>
+            <fieldset id="mittaus">
+                <legend><b>MUUT MITTAUSARVOT</b></legend>
+                <div class="arvo"><p>Kosteus ulkona<br/><b><span id="ulkok"></span>%</b></p></div>
+                <div class="arvo"><p>Kosteus sisällä<br/><b><span id="sisak"></span>%</b></p></div>
+                <div class="arvo"><p>Paine<br/><b><span id="sisap"></span> kPa</b></p></div>
+                <div class="arvo"><p>CO<sub>2</sub> pitoisuus<br/><b><span id="sisaco"></span> CO<sub>2</sub> ppm</b></p></div>
+                <div class="arvo"><p>TVOC pitoisuus<br/><b><span id="sisah"></span> TVOC ppb</b></p></div>
+            </fieldset> 
+        </div>
+    </body>
+</html>

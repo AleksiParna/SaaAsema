@@ -1,0 +1,30 @@
+.container{
+margin: 51px auto 85px auto;
+width: 90%;
+height:800px;
+border:2px solid black;
+border-radius: 8px;
+background-color: #050A30;
+color:white;
+text-align: center;
+}
+
+body{
+    font-family: helvetica;
+    background-image: linear-gradient(200deg, #C4007A, white, #d6e342);
+}
+
+
+.ulkol, .sisal{
+    font-size: 300%;
+    margin-bottom: 100px;
+    margin-top: 150px;
+}
+
+sup{
+    font-size:70%
+}
+
+h1{
+    color:antiquewhite
+}

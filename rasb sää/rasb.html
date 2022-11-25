@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width"/>
+    <link rel="stylesheet" href="styles.css"/>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>
+    <script>
+        setInterval(function(){
+            $.getJSON('http://10.6.128.80:8080/thingspeak.com/channels/1704118/feed.json?results=1',function(data){
+                let ulkola = data.feeds[0].field1;
+                let sisala = data.feeds[0].field3;
+                document.getElementById("ulkolam").innerHTML=Math.round(ulkola);
+                document.getElementById("sisalam").innerHTML=Math.round(sisala);
+            });
+        },60000);
+    </script>
+    <div class="container">
+        <h1 class="otsikko"><b>SISÄ JA ULKOLÄMPÖTILA</b></h1>
+        <div class="ulkol"><p><b>Ulkolämpötila </b><span id="ulkolam"></span> <sup>o</sup>C</p></div>
+        <div class="sisal"><p><b>Sisälämpötila </b><span id="sisalam"></span> <sup>o</sup>C</p></div>
+    </div>
+</body>
+</html>
