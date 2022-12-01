@@ -5,8 +5,8 @@
 #define DHTPIN 8
 #define DHTTYPE DHT22
 
-#define SECRET_CH_ID 1704118
-#define SECRET_WRITE_APIKEY "WONH1RBR24O7AU0W"
+#define SECRET_CH_ID 1964742
+#define SECRET_WRITE_APIKEY "1VAJZEIAQVCUHEM1"
 EthernetClient client;
 unsigned long myChannelNumber = SECRET_CH_ID;
 const char * myWriteAPIKey = SECRET_WRITE_APIKEY;
@@ -32,7 +32,7 @@ void loop( )
 {
   float humidity = sensor.readHumidity( );
   float temperature_C = sensor.readTemperature(false);
-  //float temperature = temperature_C - 5;
+  float temperature = temperature_C - 4;
   if (isnan(humidity) || isnan(temperature_C)) 
   {
     Serial.println("Failed to read from DHT sensor!");
@@ -42,7 +42,7 @@ void loop( )
    
   
 
-  ThingSpeak.setField(1, temperature_C);
+  ThingSpeak.setField(1, temperature);
   ThingSpeak.setField(2, humidity);
   int x = ThingSpeak.writeFields(myChannelNumber, myWriteAPIKey);
   if(x == 200){

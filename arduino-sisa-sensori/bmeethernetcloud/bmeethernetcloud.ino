@@ -92,11 +92,11 @@ void loop() {
 
 
   // set the fields with the values
-  ThingSpeak.setField(3, BMEtempC);
-  ThingSpeak.setField(4, BMEhumid);
-  ThingSpeak.setField(5, BMEpressure);
-  ThingSpeak.setField(6, CCSCO2);
-  ThingSpeak.setField(7, CCSTVOC);
+  ThingSpeak.setField(1, BMEtempC);
+  ThingSpeak.setField(2, BMEhumid);
+  ThingSpeak.setField(3, BMEpressure);
+  ThingSpeak.setField(4, CCSCO2);
+  ThingSpeak.setField(5, CCSTVOC);
 
 
 

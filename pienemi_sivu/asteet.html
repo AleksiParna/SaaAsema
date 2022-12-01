@@ -9,10 +9,12 @@
     <script>
         setInterval(function(){
             $.getJSON('http://10.6.128.80:8080/thingspeak.com/channels/1704118/feed.json?results=1',function(data){
-                let ulkola = data.feeds[0].field1;
-                let sisala = data.feeds[0].field3;
-                document.getElementById("ulkolam").innerHTML=Math.round(ulkola);
+                let sisala = data.feeds[0].field1;
                 document.getElementById("sisalam").innerHTML=Math.round(sisala);
+            });
+            $.getJSON('http://localhost:8080/thingspeak.com/channels/1964742/feed.json?results=1',function(data){
+                let ulkola=data.feeds[0].field1;
+                document.getElementById("ulkolam").innerHTML=Math.round(ulkola);
             });
         },60000);
     </script>

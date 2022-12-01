@@ -7,21 +7,23 @@
     <body>
         <script>
             setInterval(function(){
-                $.getJSON('http://localhost:8080/thingspeak.com/channels/1704118/feed.json?results=1',function(data){
-                    let ulkola = data.feeds[0].field1;
-                    let ulkoko = data.feeds[0].field2;
-                    let sisala = data.feeds[0].field3;
-                    let sisako = data.feeds[0].field4;
-                    let sisapa = data.feeds[0].field5;
-                    let sisahi = data.feeds[0].field6;
-                    let sisaco = data.feeds[0].field7;
-                    document.getElementById("ulkol").innerHTML=Math.round(ulkola);
-                    document.getElementById("ulkok").innerHTML=Math.round(ulkoko);
+                $.getJSON('https://api.thingspeak.com/channels/1704118/feeds.json?results=1',function(data){
+                    let sisala = data.feeds[0].field1;
+                    let sisako = data.feeds[0].field2;
+                    let sisapa = data.feeds[0].field3;
+                    let sisaco = data.feeds[0].field4;
+                    let sisahi = data.feeds[0].field5;
                     document.getElementById("sisal").innerHTML=Math.round(sisala);
                     document.getElementById("sisak").innerHTML=Math.round(sisako);
                     document.getElementById("sisap").innerHTML=Math.round(sisapa);
                     document.getElementById("sisaco").innerHTML=Math.round(sisaco);
                     document.getElementById("sisah").innerHTML=Math.round(sisahi);
+                });
+                $.getJSON('http://localhost:8080/thingspeak.com/channels/1964742/feed.json?results=1', function(data){
+                    let ulkola = data.feeds[0].field1;
+                    let ulkoko = data.feeds[0].field2;
+                    document.getElementById("ulkol").innerHTML=Math.round(ulkola);
+                    document.getElementById("ulkok").innerHTML=Math.round(ulkoko);
                 });
             },60000);
         </script>
