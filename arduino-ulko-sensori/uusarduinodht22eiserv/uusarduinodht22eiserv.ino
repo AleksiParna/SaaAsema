@@ -13,7 +13,7 @@ const char * myWriteAPIKey = SECRET_WRITE_APIKEY;
 DHT sensor(DHTPIN, DHTTYPE);
 byte mac[] = {0x90, 0xA2, 0xDA, 0x00, 0x82, 0x22};
 
-IPAddress ip(10, 6, 128, 80);
+IPAddress ip(10, 6, 128, 88);
 IPAddress myDns(10, 6, 128, 12);
 EthernetServer server(80);
  
